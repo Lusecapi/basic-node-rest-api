@@ -1,7 +1,9 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const helmet = require("helmet");
+const dotenv = require("dotenv");
 
+dotenv.config();
 const app = express();
 
 app.use((req, res, next) => {
@@ -14,9 +16,9 @@ app.use(helmet());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.listen(3000, ()=>{
+app.listen(process.env.PORT, ()=>{
 
-    console.log("Server initialized. Port 3000.");
+    console.log("Server initialized.");
 });
 
 
